@@ -28,5 +28,16 @@ The following bash script should work on Linux and MacOSX:
     #!/bin/sh
 
     git init .
-    curl -o .gitignore --fail --show-error --silent --location https://raw.github.com/github/gitignore/master/$1.gitignore
-    git add .gitignore && git commit -m "added gitignore from GitHub"
+    curl -o .gitignore --fail --show-error --silent --location https://gitlab.com/mrcagney/mrcagney.gitignore/master/$1.gitignore
+    git add .gitignore && git commit -m "Added .gitignore from MRCagney Gitlab"
+
+Call the script git-init-more.sh, chmod +x it, and put it in your path, then you can invoke it like this:
+
+    git init-more R
+
+Remember to use capitals for the name of the file if it has them.
+
+## To do
+
+  * Figure out how to do this on a Windows machine. (use linux or mac!)
+  * Alex add linux global and update with your .gitignore files you like to use.
