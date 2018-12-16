@@ -2,18 +2,19 @@
 
 The purpose of this repo is to provide some easily downloadable custom .gitignore files for a project. There are two types of .gitignore files:
 
-  1. Global, and
-  2. Local.
+  1. global, and
+  2. local.
 
-A global .gitignore is one which is a user specific .gitignore used in every git repo on their machine. For example, max OSX files have a hidden .DS_Store journal file in folders.
+A global .gitignore is one which is a user specific .gitignore used in every git repo on their machine. For example, MacOSX files have a hidden .DS_Store journal file in folders.
 
 A local .gitignore is one which is used in specific project e.g. for a python or R project. In R, you'd want to exclude your personal project file (\*.RProj) and history file (.RHistory).
 
 ## Setting up a global .gitignore
 
-Simply download the file and run the following command at the terminal / command promot substiting the name of the file you wish to be your global file.
+Simply download the file and run the following command at the terminal / command prompt substituting the name of the file you wish to be your global file:
 
-    git config --global core.excludesfile ~/.put_your_global_gitignore_here
+    curl -o .global.gitignore --location https://raw.github.com/phildonovan/gitignore/master/globals/macOS.gitignore
+    git config --global core.excludesfile ~/.global.gitignore
 
 ## Setting up a local .gitignore
 
@@ -28,7 +29,7 @@ The following bash script should work on Linux and MacOSX:
     #!/bin/sh
 
     git init .
-    curl -o .gitignore --fail --show-error --silent --location https://gitlab.com/mrcagney/mrcagney.gitignore/master/$1.gitignore
+    curl -o .gitignore --fail --show-error --silent --location https://raw.github.com/phildonovan/gitignore/master/$1.gitignore
     git add .gitignore && git commit -m "Added .gitignore from MRCagney Gitlab"
 
 Call the script git-init-more.sh, chmod +x it, and put it in your path, then you can invoke it like this:
